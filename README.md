@@ -109,19 +109,3 @@ Every run saves:
 | `logs.json` | Full event log |
 
 ---
-
-## Data Principles
-
-- **No normalization** — data preserved exactly as found on source
-- **No enrichment** — no external data added
-- **Transparency** — missing values stay missing
-- **Reusability** — every discovery saved for future runs
-
----
-
-## Adding New Extractors
-
-1. Create `src/extractors/your_extractor.py`
-2. Inherit from `BaseExtractor`
-3. Implement `extract(urls) -> tuple[list[RawProduct], ExtractionAttempt]`
-4. Add to extraction priority order in `src/run_manager.py`
