@@ -1,0 +1,56 @@
+[project]
+name = "reference-db-intelligence-agent"
+version = "0.1.0"
+description = "Intelligence agent for discovering and extracting product data from websites"
+requires-python = ">=3.12"
+dependencies = [
+    # HTTP & Scraping
+    "httpx>=0.27.0",
+    "requests>=2.32.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.2.0",
+    # Async scraping
+    "crawl4ai>=0.4.0",
+    "playwright>=1.44.0",
+    "scrapling>=0.2.0",
+    # Data models
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    # Data storage
+    "orjson>=3.10.0",
+    # Utilities
+    "rich>=13.7.0",
+    "typer>=0.12.0",
+    "python-dotenv>=1.0.0",
+    "tenacity>=8.3.0",
+    "structlog>=24.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.0",
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+rdai = "src.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

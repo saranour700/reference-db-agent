@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Environment
+.env
+.env.local
+
+# Run artifacts (large data files)
+runs/*/raw_products.jsonl
+runs/*/logs.json
+
+# Keep run reports and intelligence
+!runs/*/report.md
+!runs/*/statistics.json
+!runs/*/coverage_report.json
+!runs/*/website_intelligence.json
+!runs/*/sitemaps.json
+!runs/*/protection_analysis.json
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright
+playwright-report/
+test-results/
